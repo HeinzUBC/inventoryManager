@@ -155,6 +155,13 @@
 }
 
 /* ItemCardDetailPopUp Styles */
+.popup-content {
+  background-color: rgba(175, 244, 255, 0.71);
+  padding: 15px;
+  /* to make the popup component of the item card appear rounded*/
+  border-radius: 45px;
+}
+
 .popup-content button {
   background-color: #fd0000;
 }
