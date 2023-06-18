@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateDate } from '../StateManager/dateActions';
+import {updateDate} from "../StateManager/dateReducer";
 
 // This component utilizes React Redux hooks (useSelector and useDispatch)
 // to interact with the Redux store. It selects the date state from the store
@@ -9,7 +9,7 @@ import { updateDate } from '../StateManager/dateActions';
 const DateComponent = () => {
     // The useSelector hook is used to select the date state from the dateReducer store.
     // The currentDate variable holds the selected state value.
-    const currentDate = useSelector(state => state.date);
+    const { date } = useSelector(state => state.date);
 
     // The useDispatch hook is used to get the dateReducer store's dispatch function.
     // The dispatch variable holds the dispatch function reference.
@@ -38,7 +38,7 @@ const DateComponent = () => {
 
     return (
         <div className="date-component">
-            Date: {currentDate}
+            Date: {date}
         </div>
     );
 };

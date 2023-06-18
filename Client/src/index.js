@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom/client";
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from './StateManager/rootReducer';
@@ -7,6 +7,7 @@ import App from './Components/App';
 import "./index.css";
 import "./normalize.css";
 import "./Components/App.css";
+import {ThemeProvider} from "@material-tailwind/react";
 
 // This file sets up the Redux store and renders the root
 // component of the application, making the store accessible to all
@@ -17,14 +18,13 @@ const store = configureStore({
     reducer: rootReducer,
 });
 
-// called to render the app
-ReactDOM.render(
-    // The <Provider> component wraps the <App /> component, providing access to the
-    // Redux store through the store prop.
-    <Provider store={store}>
-        <App />
-    </Provider>,
-
-    // The rendered output is inserted into the HTML element with the ID 'root'
-    document.getElementById('root')
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    <React.StrictMode>
+        <Provider store={store}>
+            <ThemeProvider>
+                <App />
+            </ThemeProvider>
+        </Provider>
+    </React.StrictMode>
 );
