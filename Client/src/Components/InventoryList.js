@@ -1,22 +1,30 @@
 import { useDispatch, useSelector } from 'react-redux';
 import InventoryItem from './InventoryItem';
-import { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import thunk from '../StateManager/thunk';
+import {Spinner} from "@material-tailwind/react";
 
 const InventoryList = () => {
     const { inventoryList, fetchInventoryList } = useSelector((state) => state.inventory);
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        dispatch(thunk.getInventoryListAsync());
+        setLoading(true);
+        dispatch(thunk.getInventoryListAsync()).then(() => {
+            setLoading(false);
+        });
     }, [dispatch, fetchInventoryList]);
 
     return (
-        <div className="inventory-list">
-            {inventoryList.map((item) => (
-                <InventoryItem key={item.id} item={item} />
-            ))}
-        </div>
+        <>
+            {loading && <Spinner className="h-10 w-10" />}
+            <div className="inventory-list">
+                {inventoryList.map((item) => (
+                    <InventoryItem key={item.id} item={item} />
+                ))}
+            </div>
+        </>
     );
 };
 
