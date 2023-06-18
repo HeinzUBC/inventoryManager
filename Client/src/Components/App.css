@@ -37,7 +37,7 @@
 /* MailtoButton Styles */
 .mailtoButton {
   text-decoration: none;
-  background-color: rgb(250, 246, 0);
+  background-color: rgba(182, 180, 180, 0.63);
   padding: 10px;
 }
 
