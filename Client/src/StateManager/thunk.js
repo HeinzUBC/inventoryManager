@@ -48,7 +48,7 @@ const editInventoryItemAsync = createAsyncThunk(
 
 
 const deleteInventoryItemAsync = createAsyncThunk(
-    actionTypes.DEL_INVENTORY_LIST,
+    actionTypes.DEL_INVENTORY_ITEM,
     async (itemID) => {
         try {
             return await services.deleteInventoryItem(itemID);
