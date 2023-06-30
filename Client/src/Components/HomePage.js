@@ -1,8 +1,7 @@
 import Navbar from "./NavBar";
-import InputForm from "./InputForm";
-import InventoryList from "./InventoryList";
 import ScrollToTopButton from "./ScrollToTopButton";
 import React from "react";
+import InventoryInterface from "./InventoryInterface";
 
 //  The HomePage component sets up the structure and functionality of the
 //  home page in the inventory management system, including adding items,
@@ -12,8 +11,7 @@ const HomePage = () => {
         <div className="homePageBlock">
             <Navbar />
             <h1>Inventory Management System</h1>
-            <InputForm />
-            <InventoryList />
+            <InventoryInterface />
             <div className="homePageBottomButtons">
                 <ScrollToTopButton/>
             </div>
