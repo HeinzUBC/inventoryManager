@@ -1,0 +1,37 @@
+[
+  {
+    "_id": {
+      "$oid": "649fc1970d35199f2d580717"
+    },
+    "category": "FISH",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "649fcac53b003de99bee2cd6"
+    },
+    "category": "TABLET COMPUTER",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "649fcbb83b003de99bee2ce2"
+    },
+    "category": "CLOTHING",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "649fe1ff3b003de99bee2cec"
+    },
+    "category": "FRUIT",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "649fe3d83b003de99bee2cff"
+    },
+    "category": "BEVERAGE",
+    "__v": 0
+  }
+]

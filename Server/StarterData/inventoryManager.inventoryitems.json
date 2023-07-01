@@ -1,0 +1,80 @@
+[
+  {
+    "_id": {
+      "$oid": "649fc1980d35199f2d580719"
+    },
+    "name": "sockeye salmon",
+    "price": 25.15,
+    "description": "A large omnivorous fish native to British Columbia",
+    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/6/63/Oncorhynchus_nerka.jpg",
+    "category": {
+      "$oid": "649fc1970d35199f2d580717"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "649fcac53b003de99bee2cd8"
+    },
+    "name": "ipad",
+    "price": 1000,
+    "description": "tablet computer device by Apple",
+    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/d/d8/IPad_Pro_11_mockup.png",
+    "category": {
+      "$oid": "649fcac53b003de99bee2cd6"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "649fcbb83b003de99bee2ce4"
+    },
+    "name": "white cotton socks",
+    "price": 10.12,
+    "description": "cotton clothing worn on the feet",
+    "imageURL": "https://as2.ftcdn.net/v2/jpg/02/86/46/23/1000_F_286462331_SGRBwvdnzciSCSXhnem1FHGsgGkeZHos.jpg",
+    "category": {
+      "$oid": "649fcbb83b003de99bee2ce2"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "649fe1ff3b003de99bee2cee"
+    },
+    "name": "orange",
+    "price": 2.12,
+    "description": "citrus fruit rich in vitamin C",
+    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Mandarin_Oranges_(Citrus_Reticulata).jpg/1920px-Mandarin_Oranges_(Citrus_Reticulata).jpg",
+    "category": {
+      "$oid": "649fe1ff3b003de99bee2cec"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "649fe32b3b003de99bee2cf8"
+    },
+    "name": "watermelon",
+    "price": 15.69,
+    "description": "large green fruit that is sweet and very watery",
+    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Watermelon_cross_BNC.jpg/1920px-Watermelon_cross_BNC.jpg",
+    "category": {
+      "$oid": "649fe1ff3b003de99bee2cec"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "649fe3d83b003de99bee2d01"
+    },
+    "name": "bottled water",
+    "price": 3,
+    "description": "portable source of water",
+    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/PET_Bottle_Water.jpg/1920px-PET_Bottle_Water.jpg",
+    "category": {
+      "$oid": "649fe3d83b003de99bee2cff"
+    },
+    "__v": 0
+  }
+]
