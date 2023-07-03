@@ -4,4 +4,6 @@ export const actionTypes = {
     ADD_INVENTORY_ITEM: 'inventory/addInventoryItem',
     EDIT_INVENTORY_ITEM: 'inventory/editInventoryItem',
     DEL_INVENTORY_ITEM: 'inventory/deleteInventoryItem',
+    GET_CATEGORY_LIST: 'inventory/getCategoryList',
+    DEL_CATEGORY: 'inventory/deleteCategory',
 };

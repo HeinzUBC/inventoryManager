@@ -8,13 +8,6 @@
   },
   {
     "_id": {
-      "$oid": "649fcac53b003de99bee2cd6"
-    },
-    "category": "TABLET COMPUTER",
-    "__v": 0
-  },
-  {
-    "_id": {
       "$oid": "649fcbb83b003de99bee2ce2"
     },
     "category": "CLOTHING",
@@ -32,6 +25,20 @@
       "$oid": "649fe3d83b003de99bee2cff"
     },
     "category": "BEVERAGE",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64a2735c5fe4f86915e39781"
+    },
+    "category": "VEGETABLE",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64a2767daeb972ddde626022"
+    },
+    "category": "ELECTRONICS",
     "__v": 0
   }
 ]

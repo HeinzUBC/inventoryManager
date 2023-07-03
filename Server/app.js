@@ -21,7 +21,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/inventoryItems', inventoryRouter);
 app.use('/api/categories', categoryRouter);
 
-// Connect (or create if first time) a remote MongoDB database called inventoryManager
+// Connect Express backend to (or create if first time) a remote MongoDB
+// database called inventoryManager
 mongoose
     .connect(dbConfig.url, {
         useNewUrlParser: true,

@@ -9,7 +9,7 @@ const InventoryItem = ({ item }) => {
     const { deleteInventoryItem } = useSelector((state) => state.inventory);
 
     const handleDelete = () => {
-        dispatch(thunk.deleteInventoryItemAsync(item.id));
+        dispatch(thunk.deleteInventoryItemAsync(item._id));
     };
 
     return (

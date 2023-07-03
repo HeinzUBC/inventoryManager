@@ -1,10 +1,29 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:5000/api/inventoryList';
+const API_INVENTORY_ITEMS_URL = 'http://localhost:5000/api/inventoryItems';
+const API_CATEGORIES_URL = "http://localhost:5000/api/categories";
 
-const getInventoryList = async () => {
+const getCategoryList = async () => {
     try {
-        const response = await axios.get(API_BASE_URL);
+        const response = await axios.get(API_CATEGORIES_URL);
+        return response.data;
+    } catch (error) {
+        throw handleRequestError(error);
+    }
+}
+
+const deleteCategory = async (categoryID) => {
+    try {
+        const response = await axios.delete(`${API_CATEGORIES_URL}/${categoryID}`);
+        return response.data;
+    } catch (error) {
+        throw handleRequestError(error);
+    }
+}
+
+const getInventoryList = async (categoryID) => {
+    try {
+        const response = await axios.get(`${API_INVENTORY_ITEMS_URL}/fetchAllItems/${categoryID}`);
         return response.data;
     } catch (error) {
         throw handleRequestError(error);
@@ -13,7 +32,7 @@ const getInventoryList = async () => {
 
 const getInventoryItem = async (itemID) => {
     try {
-        const response = await axios.get(`${API_BASE_URL}/${itemID}`);
+        const response = await axios.get(`${API_INVENTORY_ITEMS_URL}/${itemID}`);
         return response.data;
     } catch (error) {
         throw handleRequestError(error);
@@ -22,7 +41,7 @@ const getInventoryItem = async (itemID) => {
 
 const addInventoryItem = async (item) => {
     try {
-        const response = await axios.post(API_BASE_URL, item);
+        const response = await axios.post(API_INVENTORY_ITEMS_URL, item);
         return response.data;
     } catch (error) {
         throw handleRequestError(error);
@@ -31,7 +50,7 @@ const addInventoryItem = async (item) => {
 
 const editInventoryItem = async ( itemID, item ) => {
     try {
-        const response = await axios.put(`${API_BASE_URL}/${itemID}`, item);
+        const response = await axios.put(`${API_INVENTORY_ITEMS_URL}/${itemID}`, item);
         return response.data;
     } catch (error) {
         throw handleRequestError(error);
@@ -40,7 +59,7 @@ const editInventoryItem = async ( itemID, item ) => {
 
 const deleteInventoryItem = async (itemID) => {
     try {
-        const response = await axios.delete(`${API_BASE_URL}/${itemID}`);
+        const response = await axios.delete(`${API_INVENTORY_ITEMS_URL}/${itemID}`);
         return response.data;
     } catch (error) {
         throw handleRequestError(error);
@@ -64,5 +83,7 @@ export default {
     addInventoryItem,
     editInventoryItem,
     deleteInventoryItem,
+    getCategoryList,
+    deleteCategory,
 };
 

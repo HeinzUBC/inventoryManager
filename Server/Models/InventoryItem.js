@@ -6,6 +6,7 @@ const Joi = require('joi');
 const InventoryItemSchema = new mongoose.Schema({
         name: {
             type: String,
+            lowercase: true,
             required: true,
             trim: true,
         },

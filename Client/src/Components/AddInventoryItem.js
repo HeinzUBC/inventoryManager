@@ -14,7 +14,7 @@ import {REQUEST_STATE} from "../StateManager/requestState";
 // AddInventoryItem component provides a form to add new inventory Items
 const AddInventoryItem = () => {
     const dispatch = useDispatch();
-    const { error, addInventoryItem } = useSelector((state) => state.inventory);
+    const { categoryList, error, addInventoryItem } = useSelector((state) => state.inventory);
 
     // openAddItem is used to control the visibility of the AddInventoryItem dialog popup.
     const [openAddItem, setOpen] = useState(false);
@@ -27,6 +27,7 @@ const AddInventoryItem = () => {
         description: "",
         price: "",
         imageURL: "",
+        category: "",
     });
 
     const handleOpen = () => {
@@ -52,9 +53,9 @@ const AddInventoryItem = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const { name, price, description, imageURL } = formData;
+        const { name, price, description, imageURL, category } = formData;
 
-        if (!name || !price || !description || !imageURL) {
+        if (!name || !price || !description || !imageURL || !category) {
             setErrMessage("Please provide all required fields.");
             return;
         }
@@ -64,6 +65,7 @@ const AddInventoryItem = () => {
             price: price,
             description: description,
             imageURL: imageURL,
+            category: category
         };
 
         setLoading(true);
@@ -81,6 +83,7 @@ const AddInventoryItem = () => {
             description: "",
             price: "",
             imageURL: "",
+            category: "",
         });
         setErrMessage("");
     };
@@ -157,6 +160,22 @@ const AddInventoryItem = () => {
                                 name="imageURL"
                                 onChange={handleInputChange}
                             />
+                        </div>
+                        <div className="inputField">
+                            <label htmlFor="choose-category">Category:</label>
+                            <Input
+                                id="choose-category"
+                                value={formData.category}
+                                list="categoryOptions"
+                                label="category"
+                                name="category"
+                                onChange={handleInputChange}
+                            />
+                            <datalist id="categoryOptions">
+                                {categoryList.map((category) => (
+                                    <option key={category._id} value={category.category}></option>
+                                ))}
+                            </datalist>
                         </div>
 
                         {loading && <Spinner className="h-10 w-10" />}

@@ -3,15 +3,19 @@ import {REQUEST_STATE} from "./requestState";
 import thunk from "./thunk";
 
 const INITIAL_STATE = {
+    categoryList: [],
     inventoryList: [],
     currentItem: {},
     error: null,
     fetchInventoryList: false,
+    fetchCategoryList: false,
     getInventoryList: REQUEST_STATE.IDLE,
     getInventoryItem: REQUEST_STATE.IDLE,
     addInventoryItem: REQUEST_STATE.IDLE,
     editInventoryItem: REQUEST_STATE.IDLE,
     deleteInventoryItem: REQUEST_STATE.IDLE,
+    getCategoryList: REQUEST_STATE.IDLE,
+    deleteCategory: REQUEST_STATE.IDLE,
 };
 
 const inventorySlice = createSlice({
@@ -20,6 +24,31 @@ const inventorySlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
+            .addCase(thunk.getCategoryListAsync.pending, (state) => {
+                state.getCategoryList = REQUEST_STATE.PENDING;
+                state.error = null;
+            })
+            .addCase(thunk.getCategoryListAsync.fulfilled, (state, action) => {
+                state.getCategoryList = REQUEST_STATE.FULFILLED;
+                state.categoryList = action.payload;
+            })
+            .addCase(thunk.getCategoryListAsync.rejected, (state, action) => {
+                state.getCategoryList = REQUEST_STATE.REJECTED;
+                state.error = action.error.message;
+            })
+            .addCase(thunk.deleteCategoryAsync.pending, (state) => {
+                state.deleteCategory = REQUEST_STATE.PENDING;
+                state.error = null;
+            })
+            .addCase(thunk.deleteCategoryAsync.fulfilled, (state) => {
+                state.deleteCategory = REQUEST_STATE.FULFILLED;
+                state.fetchInventoryList = !state.fetchInventoryList;
+                state.fetchCategoryList = !state.fetchCategoryList;
+            })
+            .addCase(thunk.deleteCategoryAsync.rejected, (state, action) => {
+                state.deleteCategory = REQUEST_STATE.REJECTED;
+                state.error = action.error.message;
+            })
             .addCase(thunk.getInventoryListAsync.pending, (state) => {
                 state.getInventoryList = REQUEST_STATE.PENDING;
                 state.error = null;
@@ -52,6 +81,7 @@ const inventorySlice = createSlice({
             .addCase(thunk.addInventoryItemAsync.fulfilled, (state) => {
                 state.addInventoryItem = REQUEST_STATE.FULFILLED;
                 state.fetchInventoryList = !state.fetchInventoryList;
+                state.fetchCategoryList = !state.fetchCategoryList;
             })
             .addCase(thunk.addInventoryItemAsync.rejected, (state, action) => {
                 state.addInventoryItem = REQUEST_STATE.REJECTED;
@@ -64,6 +94,7 @@ const inventorySlice = createSlice({
             .addCase(thunk.editInventoryItemAsync.fulfilled, (state) => {
                 state.editInventoryItem = REQUEST_STATE.FULFILLED;
                 state.fetchInventoryList = !state.fetchInventoryList;
+                state.fetchCategoryList = !state.fetchCategoryList;
             })
             .addCase(thunk.editInventoryItemAsync.rejected, (state, action) => {
                 state.editInventoryItem = REQUEST_STATE.REJECTED;

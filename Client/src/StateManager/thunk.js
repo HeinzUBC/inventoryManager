@@ -2,11 +2,33 @@ import {createAsyncThunk} from '@reduxjs/toolkit';
 import {actionTypes} from './actionTypes';
 import services from "./services";
 
-const getInventoryListAsync = createAsyncThunk(
-    actionTypes.GET_INVENTORY_LIST,
+const getCategoryListAsync = createAsyncThunk(
+    actionTypes.GET_CATEGORY_LIST,
     async () => {
         try {
-            return await services.getInventoryList();
+            return await services.getCategoryList();
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    }
+);
+
+const deleteCategoryAsync = createAsyncThunk(
+    actionTypes.DEL_CATEGORY,
+    async (categoryID) => {
+        try {
+            return await services.deleteCategory(categoryID);
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    }
+);
+
+const getInventoryListAsync = createAsyncThunk(
+    actionTypes.GET_INVENTORY_LIST,
+    async (categoryID ) => {
+        try {
+            return await services.getInventoryList(categoryID);
         } catch (error) {
             throw new Error(error.message);
         }
@@ -64,6 +86,8 @@ export default {
     addInventoryItemAsync,
     editInventoryItemAsync,
     deleteInventoryItemAsync,
+    getCategoryListAsync,
+    deleteCategoryAsync,
 };
 
 
