@@ -15,15 +15,21 @@ router.get('/', async (req, res) => {
 
 router.delete('/:categoryID', async (req, res) => {
     try {
-        const item = await Category.findByIdAndDelete(req.params.categoryID);
+        const items = await InventoryItem.find({category: req.params.categoryID});
 
-        if (!item) {
+        // Do not delete the category if there are inventory items that belongs to it
+        if (items.length) {
+            return res.status(403).send('The category is still used by other Inventory Items. ' +
+                'So, the category cannot be deleted');
+        }
+
+        const category = await Category.findByIdAndDelete(req.params.categoryID);
+
+        if (!category) {
             return res.status(404).send('The category with the given ID was not found.');
         }
 
-        await InventoryItem.deleteMany({ category: req.params.categoryID });
-
-        res.send(item);
+        res.send(category);
     } catch (error) {
         console.error('Error deleting category:', error);
         res.status(500).send('An error occurred while deleting the category: ' + error.message);
