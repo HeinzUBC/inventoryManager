@@ -68,7 +68,7 @@ const deleteInventoryItem = async (itemID) => {
 
 const handleRequestError = (error) => {
     if (error.response) {
-        const errorMsg = error.response.data.message;
+        const errorMsg = error.response.data;
         return new Error(errorMsg);
     } else if (error.request) {
         return new Error('No response received from the server.');

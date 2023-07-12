@@ -7,8 +7,8 @@ import CategoryDelete from "./CategoryDelete";
 // CategoryToggle provides a dropdown menu for selecting a specific category to filter
 // inventory items by category. setSelectedCategoryID uses the toggle
 // selection as the inventory list filter criteria in the MongoDB database.
-function CategoryToggle({setSelectedCategoryID}) {
-    const { categoryList, fetchCategoryList } = useSelector(
+function CategoryToggle({setSelectedCategoryID, setErrMessage}) {
+    const {categoryList, fetchCategoryList} = useSelector(
         (state) => state.inventory
     );
 
@@ -24,10 +24,17 @@ function CategoryToggle({setSelectedCategoryID}) {
         });
     }, [dispatch, fetchCategoryList]);
 
+    // sets the categoryID used by the database to perform inventory item
+    // filtering. Clears any error messages that arose from the ControlPanel
+    const handleCategorySelection = (selectedID) => {
+        setSelectedCategoryID(selectedID);
+        setErrMessage("");
+    };
+
     return (
         <div className="toggleBox">
-            {loading && <Spinner className="h-10 w-10" />}
-            <Select id="categoryFilter" label="Search by Category" onChange={setSelectedCategoryID}>
+            {loading && <Spinner className="h-10 w-10"/>}
+            <Select id="categoryFilter" label="Search by Category" onChange={handleCategorySelection}>
                 <Option value="">All Categories</Option>
                 {categoryList.map((category) => (
                     <Option key={category._id} value={category._id} className="categoryOption">
