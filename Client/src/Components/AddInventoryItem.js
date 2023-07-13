@@ -114,9 +114,11 @@ const AddInventoryItem = () => {
                 handler={handleOpen}
                 className="shadow-none"
             >
-                <Card className="addItemForm">
-                    <h2>Add Inventory Item</h2>
-                    <form onSubmit={handleSubmit}>
+                <Card className="m-4">
+                    <h2 className="flex flex-row justify-center">Add Inventory Item</h2>
+                    <form
+                        className="flex flex-col justify-evenly h-[30rem] overflow-y-auto"
+                        onSubmit={handleSubmit}>
                         <div className="inputField">
                             <Input
                                 value={formData.name}
