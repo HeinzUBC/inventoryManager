@@ -32,12 +32,13 @@ function CategoryToggle({setSelectedCategoryID, setErrMessage}) {
     };
 
     return (
-        <div className="toggleBox">
+        <div className="w-[15rem]">
             {loading && <Spinner className="h-10 w-10"/>}
             <Select id="categoryFilter" label="Search by Category" onChange={handleCategorySelection}>
                 <Option value="">All Categories</Option>
                 {categoryList.map((category) => (
-                    <Option key={category._id} value={category._id} className="categoryOption">
+                    <Option key={category._id} value={category._id}
+                            className="flex flex-row justify-between flex-wrap">
                         {category.category}
                         <CategoryDelete category={category} setSelectedCategoryID={setSelectedCategoryID}/>
                     </Option>

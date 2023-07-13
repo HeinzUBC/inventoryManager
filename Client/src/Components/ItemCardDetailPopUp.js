@@ -118,52 +118,42 @@ const ItemCardDetailPopUp = ({ item }) => {
                     <h2>Edit Inventory Item</h2>
                     <form className="ItemForm" onSubmit={handleFormSubmit}>
                         <div className="inputField">
-                            <label htmlFor="edit-name">name:</label>
-                            <Input id="edit-name"
-                                   value={formData.name}
-                                   label="name"
+                            <Input value={formData.name}
+                                   label="Name"
                                    name="name"
-                                   onChange={handleInputChange} />
+                                   onChange={handleInputChange}/>
                         </div>
                         <div className="inputField">
-                            <label htmlFor="edit-price">price:</label>
                             <Input
-                                id="edit-price"
                                 type="number"
                                 step="any"
                                 min={0}
                                 value={formData.price}
-                                label="price"
+                                label="Price"
                                 name="price"
                                 onChange={handleInputChange}
                             />
                         </div>
                         <div className="inputField">
-                            <label htmlFor="edit-description">Description:</label>
                             <Textarea
-                                id="edit-description"
-                                label="description"
+                                label="Description"
                                 name="description"
                                 value={formData.description}
                                 onChange={handleInputChange}
                             />
                         </div>
                         <div className="inputField">
-                            <label htmlFor="edit-imageURL">Image URL:</label>
-                            <Input id="edit-imageURL"
-                                   type="url"
+                            <Input type="url"
                                    value={formData.imageURL}
-                                   label="image URL"
+                                   label="Image URL"
                                    name="imageURL"
-                                   onChange={handleInputChange} />
+                                   onChange={handleInputChange}/>
                         </div>
                         <div className="inputField">
-                            <label htmlFor="edit-category">Category:</label>
                             <Input
-                                id="edit-category"
                                 value={formData.category}
                                 list="categoryOptions"
-                                label="category"
+                                label="Category"
                                 name="category"
                                 onChange={handleInputChange}
                             />
@@ -177,7 +167,7 @@ const ItemCardDetailPopUp = ({ item }) => {
                         {loading && <Spinner className="h-10 w-10" />}
                         {errMessage && <p className="error-msg">{errMessage}</p>}
 
-                        <div className="EditItemButtons">
+                        <div className="DialogButtons">
                             <Button color="light-blue" size="sm" type="submit">
                                 Confirm
                             </Button>

@@ -13,14 +13,17 @@ const InventoryItem = ({ item }) => {
     };
 
     return (
-        <div className="inventory-item">
-            <img src={item.imageURL} alt={item.name} />
+        <div className="inventory-item flex flex-col
+        items-center max-w-[200px]">
+            <img src={item.imageURL} alt={item.name}/>
             <p>{item.name}</p>
-            <button id="deleteAnItemButton" onClick={handleDelete}>
-                Delete
-            </button>
-            {deleteInventoryItem === 'PENDING' && <Spinner className="h-10 w-10" />}
-            <ItemCardDetailPopUp item={item} />
+            {deleteInventoryItem === 'PENDING' && <Spinner className="h-10 w-10"/>}
+            <div className="flex flex-row justify-evenly flex-wrap">
+                <button id="deleteAnItemButton" onClick={handleDelete}>
+                    Delete
+                </button>
+                <ItemCardDetailPopUp item={item}/>
+            </div>
         </div>
     );
 };

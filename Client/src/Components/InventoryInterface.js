@@ -10,9 +10,9 @@ const InventoryInterface = () => {
     const [selectedCategoryID, setSelectedCategoryID] = useState("");
 
     return (
-        <div className="InventoryInterface">
-            <InventoryList selectedCategoryID={selectedCategoryID} />
-            <ControlPanel setSelectedCategoryID={setSelectedCategoryID} />
+        <div className="flex flex-row justify-evenly flex-wrap">
+            <InventoryList selectedCategoryID={selectedCategoryID}/>
+            <ControlPanel setSelectedCategoryID={setSelectedCategoryID}/>
         </div>
     );
 };

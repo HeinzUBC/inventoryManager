@@ -102,7 +102,7 @@ const AddInventoryItem = () => {
         <>
             <Button
                 color="red"
-                id="AddNewItemButton"
+                className="mt-4"
                 size="md"
                 onClick={handleOpen}
             >
@@ -118,56 +118,46 @@ const AddInventoryItem = () => {
                     <h2>Add Inventory Item</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="inputField">
-                            <label htmlFor="item-name">Name:</label>
                             <Input
-                                id="item-name"
                                 value={formData.name}
-                                label="name"
+                                label="Name"
                                 name="name"
                                 onChange={handleInputChange}
                             />
                         </div>
                         <div className="inputField">
-                            <label htmlFor="item-price">Price:</label>
                             <Input
-                                id="item-price"
                                 type="number"
                                 step="any"
                                 min={0}
                                 value={formData.price}
-                                label="price"
+                                label="Price"
                                 name="price"
                                 onChange={handleInputChange}
                             />
                         </div>
                         <div className="inputField">
-                            <label htmlFor="add-description">Description:</label>
                             <Textarea
-                                id="add-description"
-                                label="description"
+                                label="Description"
                                 name="description"
                                 value={formData.description}
                                 onChange={handleInputChange}
                             />
                         </div>
                         <div className="inputField">
-                            <label htmlFor="image-URL">Image URL:</label>
                             <Input
-                                id="image-URL"
                                 type="url"
                                 value={formData.imageURL}
-                                label="image URL"
+                                label="Image URL"
                                 name="imageURL"
                                 onChange={handleInputChange}
                             />
                         </div>
                         <div className="inputField">
-                            <label htmlFor="choose-category">Category:</label>
                             <Input
-                                id="choose-category"
                                 value={formData.category}
                                 list="categoryOptions"
-                                label="category"
+                                label="Category"
                                 name="category"
                                 onChange={handleInputChange}
                             />
