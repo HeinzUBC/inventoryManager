@@ -3,9 +3,11 @@ const Category = require('../Models/Category');
 const {InventoryItem} = require('../Models/InventoryItem');
 const router = express.Router();
 
+// defines the routes related to the Category collection in the Express backend.
+
 router.get('/', async (req, res) => {
     try {
-        const outputList = await Category.find().sort({ category: 1 });
+        const outputList = await Category.find().sort({category: 1});
         res.send(outputList);
     } catch (error) {
         console.error('Error fetching categories:', error);

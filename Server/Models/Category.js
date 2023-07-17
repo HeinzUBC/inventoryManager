@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Defines a Mongoose schema and model for the "Category" collection in the MongoDB database.
 const categorySchema = new mongoose.Schema({
     category: {
         type: String,

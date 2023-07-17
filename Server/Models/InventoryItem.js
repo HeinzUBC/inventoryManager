@@ -2,17 +2,18 @@ const mongoose = require('mongoose');
 require('mongoose-type-url');
 const Joi = require('joi');
 
-// new attribute to InventoryItem is category
+// Defines a Mongoose schema, model, and a validation function for the
+// "InventoryItem" collection in the MongoDB database.
 const InventoryItemSchema = new mongoose.Schema({
-        name: {
-            type: String,
-            lowercase: true,
-            required: true,
-            trim: true,
-        },
-        price: {
-            type: Number,
-            required: true,
+    name: {
+        type: String,
+        lowercase: true,
+        required: true,
+        trim: true,
+    },
+    price: {
+        type: Number,
+        required: true,
             min: 0,
         },
         description: {

@@ -3,6 +3,7 @@ const {InventoryItem, validate} = require('../Models/InventoryItem');
 const Category = require('../Models/Category');
 const router = express.Router();
 
+// Defines the routes related to the inventory item collection in the Express backend.
 router.get('/fetchAllItems/:categoryID?', async (req, res) => {
     try {
         const filter = {};

@@ -5,16 +5,21 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
 
+// The main entry point for the Express backend. It sets up the application,
+// defines middleware, connects to the MongoDB database, and configures the routes.
+
 var dbConfig = require("./config/db.config");
 var inventoryRouter = require('./routes/InventoryItems');
 var categoryRouter = require('./routes/categories');
 
 var app = express();
 
+// Enable Cross-Origin Resource Sharing (CORS) and allow requests from different origins.
+// This prevents cross-site request forgery (CSRF) issues
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
