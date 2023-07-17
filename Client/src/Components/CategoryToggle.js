@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import {Option, Select, Spinner} from "@material-tailwind/react";
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import thunk from "../StateManager/thunk";
 import CategoryDelete from "./CategoryDelete";
 
-// CategoryToggle provides a dropdown menu for selecting a specific category to filter
-// inventory items by category. setSelectedCategoryID uses the toggle
-// selection as the inventory list filter criteria in the MongoDB database.
+// Renders a dropdown menu for selecting a specific category to filter inventory
+// items by. setSelectedCategoryID uses the toggle selection as the inventory list
+// filter criteria in the MongoDB database.
 function CategoryToggle({setSelectedCategoryID, setErrMessage}) {
     const {categoryList, fetchCategoryList} = useSelector(
         (state) => state.inventory

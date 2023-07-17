@@ -4,8 +4,8 @@ import CategoryToggle from "./CategoryToggle";
 import {REQUEST_STATE} from "../StateManager/requestState";
 import {useSelector} from "react-redux";
 
-// ControlPanel component provides functionalities for adding new inventory items
-// and filtering inventory items by category.
+// Renders the control panel component that provides functionalities for
+// adding new inventory items and filtering inventory items by category.
 const ControlPanel = ({setSelectedCategoryID}) => {
     const {error, deleteCategory} = useSelector((state) => state.inventory);
     const [errMessage, setErrMessage] = useState("");

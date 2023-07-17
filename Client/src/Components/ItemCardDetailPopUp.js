@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Button, Card, Dialog, Input, Spinner, Textarea } from '@material-tailwind/react';
+import React, {useState, useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {Button, Card, Dialog, Input, Spinner, Textarea} from '@material-tailwind/react';
 import thunk from '../StateManager/thunk';
-import { REQUEST_STATE } from '../StateManager/requestState';
+import {REQUEST_STATE} from '../StateManager/requestState';
 
-const ItemCardDetailPopUp = ({ item }) => {
-    const { categoryList, getInventoryItem, currentItem, error } = useSelector((state) => state.inventory);
+// Renders a dialog pop-up component that allows users to edit the details
+// of an inventory item.
+const ItemCardDetailPopUp = ({item}) => {
+    const {categoryList, getInventoryItem, currentItem, error} = useSelector((state) => state.inventory);
     const dispatch = useDispatch();
 
     const [open, setOpen] = useState(false);

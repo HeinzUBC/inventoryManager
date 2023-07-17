@@ -11,7 +11,7 @@ import {
 import thunk from "../StateManager/thunk";
 import {REQUEST_STATE} from "../StateManager/requestState";
 
-// AddInventoryItem component provides a form to add new inventory Items
+// Renders a button that opens a dialog popup containing a form to add a new inventory item.
 const AddInventoryItem = () => {
     const dispatch = useDispatch();
     const { categoryList, error, addInventoryItem } = useSelector((state) => state.inventory);

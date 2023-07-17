@@ -1,12 +1,14 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import thunk from '../StateManager/thunk';
 import ItemCardDetailPopUp from './ItemCardDetailPopUp';
-import { Spinner } from '@material-tailwind/react';
+import {Spinner} from '@material-tailwind/react';
 
-const InventoryItem = ({ item }) => {
+// It renders an individual inventory item card with its image, name,
+// and two buttons: "Delete" and "More Info".
+const InventoryItem = ({item}) => {
     const dispatch = useDispatch();
-    const { deleteInventoryItem } = useSelector((state) => state.inventory);
+    const {deleteInventoryItem} = useSelector((state) => state.inventory);
 
     const handleDelete = () => {
         dispatch(thunk.deleteInventoryItemAsync(item._id));

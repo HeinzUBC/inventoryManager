@@ -4,8 +4,9 @@ import React, {useEffect, useState} from 'react';
 import thunk from '../StateManager/thunk';
 import {Spinner} from "@material-tailwind/react";
 
+// Renders a list of inventory items based on the inventoryList state from the Redux store.
 const InventoryList = ({selectedCategoryID}) => {
-    const { inventoryList, fetchInventoryList } = useSelector((state) => state.inventory);
+    const {inventoryList} = useSelector((state) => state.inventory);
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
 
@@ -18,7 +19,7 @@ const InventoryList = ({selectedCategoryID}) => {
         dispatch(thunk.getInventoryListAsync(selectedCategoryID)).then(() => {
             setLoading(false);
         });
-    }, [dispatch, fetchInventoryList, selectedCategoryID]);
+    }, [dispatch, selectedCategoryID]);
 
     return (
         <>
