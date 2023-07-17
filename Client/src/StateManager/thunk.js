@@ -2,6 +2,9 @@ import {createAsyncThunk} from '@reduxjs/toolkit';
 import {actionTypes} from './actionTypes';
 import services from "./services";
 
+// These async action creators handle the asynchronous logic and dispatch
+// actions to the inventoryReducer Redux store to interact with the backend API.
+
 const getCategoryListAsync = createAsyncThunk(
     actionTypes.GET_CATEGORY_LIST,
     async () => {

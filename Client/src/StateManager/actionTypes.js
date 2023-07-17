@@ -1,3 +1,4 @@
+// Defines the types of actions that can be dispatched to update the state in inventoryReducer Redux store
 export const actionTypes = {
     GET_INVENTORY_LIST: 'inventory/getInventoryList',
     GET_INVENTORY_ITEM: 'inventory/getInventoryItem',

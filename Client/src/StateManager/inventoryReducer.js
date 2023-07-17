@@ -2,6 +2,9 @@ import {createSlice} from "@reduxjs/toolkit";
 import {REQUEST_STATE} from "./requestState";
 import thunk from "./thunk";
 
+// The Redux reducer logic that manages the state updates based on the different request states and
+// handles the responses from the async actions.
+
 const INITIAL_STATE = {
     categoryList: [],
     inventoryList: [],
@@ -22,6 +25,9 @@ const inventorySlice = createSlice({
     name: "inventory",
     initialState: INITIAL_STATE,
     reducers: {},
+
+    // extraReducers is used to handle additional actions dispatched
+    // by the async action creators defined in thunk.js.
     extraReducers: (builder) => {
         builder
             .addCase(thunk.getCategoryListAsync.pending, (state) => {

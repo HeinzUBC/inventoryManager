@@ -1,5 +1,9 @@
 import axios from 'axios';
 
+// Service functions that make HTTP requests to the backend API endpoints using Axios.
+// These functions provide an interface for interacting with the backend and performing
+// CRUD operations on inventory items and categories.
+
 const API_INVENTORY_ITEMS_URL = 'http://localhost:5000/api/inventoryItems';
 const API_CATEGORIES_URL = "http://localhost:5000/api/categories";
 
