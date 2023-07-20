@@ -4,9 +4,8 @@ import axios from 'axios';
 // These functions provide an interface for interacting with the backend and performing
 // CRUD operations on inventory items and categories.
 
-// Once I successfully deploy my backend, I can basically replace http://localhost:5000
-// with the deployment link of the backend.
-const BACKEND_URL = "https://inventory-manager-backend.onrender.com";
+// Obtain backend URL by accessing environmental variable
+const BACKEND_URL = process.env.REACT_APP_INVENTORY_MANAGER_BACKEND_URL;
 const API_INVENTORY_ITEMS_URL = `${BACKEND_URL}/api/inventoryItems`;
 const API_CATEGORIES_URL = `${BACKEND_URL}/api/categories`;
 
