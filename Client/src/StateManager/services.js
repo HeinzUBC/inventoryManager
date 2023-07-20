@@ -4,6 +4,8 @@ import axios from 'axios';
 // These functions provide an interface for interacting with the backend and performing
 // CRUD operations on inventory items and categories.
 
+// Once I successfully deploy my backend, I can basically replace http://localhost:5000
+// with the deployment link of the backend.
 const API_INVENTORY_ITEMS_URL = 'http://localhost:5000/api/inventoryItems';
 const API_CATEGORIES_URL = "http://localhost:5000/api/categories";
 

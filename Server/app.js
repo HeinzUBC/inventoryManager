@@ -4,11 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
+require("dotenv").config();
 
 // The main entry point for the Express backend. It sets up the application,
 // defines middleware, connects to the MongoDB database, and configures the routes.
 
-var dbConfig = require("./config/db.config");
 var inventoryRouter = require('./routes/InventoryItems');
 var categoryRouter = require('./routes/categories');
 
@@ -29,7 +29,7 @@ app.use('/api/categories', categoryRouter);
 // Connect Express backend to (or create if first time) a remote MongoDB
 // database called inventoryManager
 mongoose
-    .connect(dbConfig.url, {
+    .connect(process.env.MONGODB_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })
