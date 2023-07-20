@@ -6,10 +6,13 @@ import {Spinner} from "@material-tailwind/react";
 
 // Renders a list of inventory items based on the inventoryList state from the Redux store.
 const InventoryList = ({selectedCategoryID}) => {
-    const {inventoryList} = useSelector((state) => state.inventory);
+    const {inventoryList, fetchInventoryList} = useSelector((state) => state.inventory);
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
 
+    // fetchInventoryList flag added as dependency to useEffect hook
+    // so that whenever the inventory collection in database updates,
+    // React component updates the Redux store with getInventoryListAsync()
     useEffect(() => {
         setLoading(true);
         // selectedCategoryID is passed into getInventoryListAsync()
@@ -19,7 +22,7 @@ const InventoryList = ({selectedCategoryID}) => {
         dispatch(thunk.getInventoryListAsync(selectedCategoryID)).then(() => {
             setLoading(false);
         });
-    }, [dispatch, selectedCategoryID]);
+    }, [dispatch, fetchInventoryList, selectedCategoryID]);
 
     return (
         <>

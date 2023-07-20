@@ -6,7 +6,7 @@ import axios from 'axios';
 
 // Once I successfully deploy my backend, I can basically replace http://localhost:5000
 // with the deployment link of the backend.
-const BACKEND_URL = process.env.INVENTORY_MANAGER_BACKEND_URL;
+const BACKEND_URL = "https://inventory-manager-backend.onrender.com";
 const API_INVENTORY_ITEMS_URL = `${BACKEND_URL}/api/inventoryItems`;
 const API_CATEGORIES_URL = `${BACKEND_URL}/api/categories`;
 

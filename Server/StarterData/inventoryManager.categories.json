@@ -1,13 +1,6 @@
 [
   {
     "_id": {
-      "$oid": "649fc1970d35199f2d580717"
-    },
-    "category": "FISH",
-    "__v": 0
-  },
-  {
-    "_id": {
       "$oid": "649fcbb83b003de99bee2ce2"
     },
     "category": "CLOTHING",
@@ -15,16 +8,9 @@
   },
   {
     "_id": {
-      "$oid": "649fe1ff3b003de99bee2cec"
+      "$oid": "64a2767daeb972ddde626022"
     },
-    "category": "FRUIT",
-    "__v": 0
-  },
-  {
-    "_id": {
-      "$oid": "649fe3d83b003de99bee2cff"
-    },
-    "category": "BEVERAGE",
+    "category": "ELECTRONICS",
     "__v": 0
   },
   {
@@ -36,9 +22,30 @@
   },
   {
     "_id": {
-      "$oid": "64a2767daeb972ddde626022"
+      "$oid": "649fe3d83b003de99bee2cff"
     },
-    "category": "ELECTRONICS",
+    "category": "BEVERAGE",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "649fc1970d35199f2d580717"
+    },
+    "category": "FISH",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "649fe1ff3b003de99bee2cec"
+    },
+    "category": "FRUIT",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b9822513e342874a4862b0"
+    },
+    "category": "ANIMAL",
     "__v": 0
   }
 ]
