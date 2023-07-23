@@ -105,19 +105,6 @@
   },
   {
     "_id": {
-      "$oid": "649fcbb83b003de99bee2ce4"
-    },
-    "name": "white cotton socks",
-    "price": 10.12,
-    "description": "cotton clothing worn on the feet",
-    "imageURL": "https://as2.ftcdn.net/v2/jpg/02/86/46/23/1000_F_286462331_SGRBwvdnzciSCSXhnem1FHGsgGkeZHos.jpg",
-    "category": {
-      "$oid": "649fcbb83b003de99bee2ce2"
-    },
-    "__v": 0
-  },
-  {
-    "_id": {
       "$oid": "649fe32b3b003de99bee2cf8"
     },
     "name": "watermelon",
@@ -131,12 +118,12 @@
   },
   {
     "_id": {
-      "$oid": "64b9822513e342874a4862b2"
+      "$oid": "64b986f4e739822e36657823"
     },
-    "name": "black pig",
-    "price": 200.34,
-    "description": "A cute, friendly big. Looking for a new home",
-    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Pig%2C_Kilcullen.jpg/1920px-Pig%2C_Kilcullen.jpg",
+    "name": "hippo",
+    "price": 1000.12,
+    "description": "A large herbavore who like swimming",
+    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Portrait_Hippopotamus_in_the_water.jpg/1920px-Portrait_Hippopotamus_in_the_water.jpg",
     "category": {
       "$oid": "64b9822513e342874a4862b0"
     },
@@ -144,14 +131,66 @@
   },
   {
     "_id": {
-      "$oid": "64b9828513e342874a4862c0"
+      "$oid": "64b98771e739822e3665782a"
     },
-    "name": "horse",
-    "price": 300.15,
-    "description": "A large majestic animal that humans can ride on",
-    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/d/de/Nokota_Horses_cropped.jpg",
+    "name": "african rhinocero",
+    "price": 2010.23,
+    "description": "A large, powerful herbivore native to Africa. Very aggressive",
+    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Ostafrikanisches_Spitzmaulnashorn.JPG/1920px-Ostafrikanisches_Spitzmaulnashorn.JPG",
     "category": {
       "$oid": "64b9822513e342874a4862b0"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b9c5d12458134700274232"
+    },
+    "name": "dress from 19th century",
+    "price": 4000.3,
+    "description": "A fancy, elegant dress from Victorian Europe in 1855",
+    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Ensemble_MET_DT6845.jpg/1024px-Ensemble_MET_DT6845.jpg",
+    "category": {
+      "$oid": "649fcbb83b003de99bee2ce2"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b9c624245813470027423d"
+    },
+    "name": "cotton gown from 19th century",
+    "price": 2000,
+    "description": "A nice gown from America in 1860",
+    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Ball_gown_MET_DT7579.jpg/1024px-Ball_gown_MET_DT7579.jpg",
+    "category": {
+      "$oid": "649fcbb83b003de99bee2ce2"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64b9c6f22458134700274254"
+    },
+    "name": "pacific bluefine tuna",
+    "price": 100.56,
+    "description": "A beautiful tuna fish native to the Pacific Ocean. Quite tasty when consumed raw.",
+    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Thunnus_orientalis_(Osaka_Kaiyukan_Aquarium).jpg/1280px-Thunnus_orientalis_(Osaka_Kaiyukan_Aquarium).jpg",
+    "category": {
+      "$oid": "649fc1970d35199f2d580717"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "64bad5a4f188c6fdbea6282f"
+    },
+    "name": "romaine lettuce",
+    "price": 1.2,
+    "description": "A healthy and tasty source of vitamins and fibre.",
+    "imageURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Romaine_lettuce.jpg/1024px-Romaine_lettuce.jpg",
+    "category": {
+      "$oid": "64a2735c5fe4f86915e39781"
     },
     "__v": 0
   }

@@ -42,26 +42,27 @@ router.get('/:itemID', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const { error } = validate(req.body);
+        // value contains the validated req.body (inventoryItem) object
+        const {error, value} = validate(req.body);
 
         if (error) {
             return res.status(400).send(error.details[0].message);
         }
 
-        let category = await Category.findOne({ category: req.body.category });
+        let category = await Category.findOne({category: value.category});
 
         if (!category) {
             category = new Category({
-                category: req.body.category,
+                category: value.category,
             });
             category = await category.save();
         }
 
         const newItem = new InventoryItem({
-            name: req.body.name,
-            description: req.body.description,
-            price: parseFloat(req.body.price),
-            imageURL: req.body.imageURL,
+            name: value.name,
+            description: value.description,
+            price: parseFloat(value.price),
+            imageURL: value.imageURL,
             category: category._id,
         });
 
@@ -75,18 +76,19 @@ router.post('/', async (req, res) => {
 
 router.put('/:itemID', async (req, res) => {
     try {
-        const { error } = validate(req.body);
+        // value contains the validated req.body (inventoryItem) object
+        const {error, value} = validate(req.body);
 
         if (error) {
             return res.status(400).send(error.details[0].message);
         }
 
         let category = await Category
-            .findOne({ category: req.body.category });
+            .findOne({category: value.category});
 
         if (!category) {
             category = new Category({
-                category: req.body.category,
+                category: value.category,
             });
             category = await category.save();
         }
@@ -94,10 +96,10 @@ router.put('/:itemID', async (req, res) => {
         const item = await InventoryItem.findByIdAndUpdate(
             req.params.itemID,
             {
-                name: req.body.name,
-                description: req.body.description,
-                price: parseFloat(req.body.price),
-                imageURL: req.body.imageURL,
+                name: value.name,
+                description: value.description,
+                price: parseFloat(value.price),
+                imageURL: value.imageURL,
                 category: category._id,
             },
             { new: true }
