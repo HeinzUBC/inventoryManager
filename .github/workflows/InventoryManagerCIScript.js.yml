@@ -3,6 +3,8 @@
 
 name: InventoryManager CI script
 
+# The workflow is triggered on push events to the "master" branch
+# and also on pull requests targeting the "master" branch
 on:
   push:
     branches: [ "master" ]
@@ -12,21 +14,36 @@ on:
 jobs:
   build:
 
+    # The workflow defines a single job named "build" that runs
+    # on the "ubuntu-latest" runner.
     runs-on: ubuntu-latest
 
+    # The job uses the "strategy" section to create a matrix of Node.js
+    # versions (14.x, 16.x, 18.x, 20.x) to test the code across different
+    # Node.js releases.
     strategy:
       matrix:
         node-version: [ 14.x, 16.x, 18.x, 20.x ]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+      # uses the actions/checkout action to clone the repository from
+      # the "master" branch into the runner.
       - uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      # Disable caching for the root repository
+      - name: Disable Cache
+        run: echo "::set-env name=STATE::false"
+
+      # Enable caching for inventoryManager/Client directory
+      - name: Use Node.js ${{ matrix.node-version }} for inventoryManager/Client
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+        env:
+          STATE: true
+        working-directory: inventoryManager/Client
 
       - name: Install dependencies for inventoryManager/Client
         run: npm ci
@@ -35,6 +52,19 @@ jobs:
       - name: Build inventoryManager/Client
         run: npm run build --if-present
         working-directory: inventoryManager/Client
+
+      # Enable caching for inventoryManager/Server directory
+      - name: Use Node.js ${{ matrix.node-version }} for inventoryManager/Server
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+        # Checks the value of the STATE environment variable. If STATE
+        # is "false," the script sets up Node.js with the specified version and caches
+        # npm dependencies.
+        if: env.STATE == 'false'
+        working-directory: inventoryManager/Server
 
       - name: Install dependencies for inventoryManager/Server
         run: npm ci
