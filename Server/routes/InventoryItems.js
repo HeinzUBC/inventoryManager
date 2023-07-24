@@ -18,7 +18,6 @@ router.get('/fetchAllItems/:categoryID?', async (req, res) => {
 
         res.send(outputList);
     } catch (error) {
-        console.error('Error fetching inventory items:', error);
         res.status(500).send('An error occurred while fetching inventory items: ' + error.message);
     }
 });
@@ -35,7 +34,6 @@ router.get('/:itemID', async (req, res) => {
 
         res.send(item);
     } catch (error) {
-        console.error('Error fetching inventory item:', error);
         res.status(500).send('An error occurred while fetching the inventory item: ' + error.message);
     }
 });
@@ -69,7 +67,6 @@ router.post('/', async (req, res) => {
         await newItem.save();
         res.send(newItem);
     } catch (error) {
-        console.error('Error creating inventory item:', error);
         res.status(500).send('An error occurred while creating the inventory item: ' + error.message);
     }
 });
@@ -111,7 +108,6 @@ router.put('/:itemID', async (req, res) => {
 
         res.send(item);
     } catch (error) {
-        console.error('Error updating inventory item:', error);
         res.status(500).send('An error occurred while updating the inventory item: ' + error.message);
     }
 });
@@ -126,7 +122,6 @@ router.delete('/:itemID', async (req, res) => {
 
         res.send(item);
     } catch (error) {
-        console.error('Error deleting inventory item:', error);
         res.status(500).send('An error occurred while deleting the inventory item: ' + error.message);
     }
 });

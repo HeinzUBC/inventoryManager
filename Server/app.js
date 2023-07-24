@@ -26,10 +26,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api/inventoryItems', inventoryRouter);
 app.use('/api/categories', categoryRouter);
 
+// app.js connects to different MongoDB Atlas databases
+// based on whether we are running the backend with "npm start"
+// or "npm test"
+let mongoDBConnectionString = process.env.MONGODB_URI;
+if (process.env.NODE_ENV === 'test') {
+    mongoDBConnectionString = process.env.MONGODB_TEST_URL;
+}
+
 // Connect Express backend to (or create if first time) a remote MongoDB
 // database called inventoryManager
 mongoose
-    .connect(process.env.MONGODB_URI, {
+    .connect(mongoDBConnectionString, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     })

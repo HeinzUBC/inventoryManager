@@ -10,7 +10,6 @@ router.get('/', async (req, res) => {
         const outputList = await Category.find().sort({category: 1});
         res.send(outputList);
     } catch (error) {
-        console.error('Error fetching categories:', error);
         res.status(500).send('An error occurred while fetching categories: ' + error.message);
     }
 });
@@ -33,7 +32,6 @@ router.delete('/:categoryID', async (req, res) => {
 
         res.send(category);
     } catch (error) {
-        console.error('Error deleting category:', error);
         res.status(500).send('An error occurred while deleting the category: ' + error.message);
     }
 });
