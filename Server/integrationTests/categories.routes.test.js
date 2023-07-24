@@ -3,8 +3,7 @@ const app = require('../app');
 const mongoose = require('mongoose');
 const Category = require('../Models/Category');
 const {InventoryItem} = require('../Models/InventoryItem');
-const fs = require('fs');
-const path = require('path');
+const {populateCategories} = require("./testHelpers");
 
 describe('Categories API', () => {
     beforeAll(async () => {
@@ -38,28 +37,6 @@ describe('Categories API', () => {
         await InventoryItem.deleteMany({});
         await Category.deleteMany({});
     });
-
-    // populate the Category collection in test database for testing
-    const populateCategories = async () => {
-        // Resolve the absolute path to the JSON file based on the current working directory
-        const filePath = path.resolve(__dirname, '../StarterData/inventoryManager.categories.json');
-
-        // Read the contents of the JSON file.
-        const data = fs.readFileSync(filePath, 'utf8');
-
-        // Parse the JSON data into an array of category objects.
-        let categoriesArray = JSON.parse(data);
-
-        // Assign the value of category._id.$oid to the _id field.
-        // Otherwise, Category.insertMany() will throw an error saying it cannot convert
-        // category._id.$oid to ObjectID
-        categoriesArray = categoriesArray.map((category) => {
-            return {...category, _id: category._id.$oid};
-        });
-
-        // Insert categoriesArray into the Category collection in MongoDB
-        await Category.insertMany(categoriesArray);
-    }
 
     describe('GET /', function () {
         it('should return all Categories', async () => {
