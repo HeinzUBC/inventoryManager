@@ -83,8 +83,7 @@ const deleteInventoryItemAsync = createAsyncThunk(
     }
 );
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {
+const thunk = {
     getInventoryListAsync,
     getInventoryItemAsync,
     addInventoryItemAsync,
@@ -92,7 +91,9 @@ export default {
     deleteInventoryItemAsync,
     getCategoryListAsync,
     deleteCategoryAsync,
-};
+}
+
+export default thunk;
 
 
 

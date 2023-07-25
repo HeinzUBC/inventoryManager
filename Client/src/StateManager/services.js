@@ -83,8 +83,7 @@ const handleRequestError = (error) => {
     }
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {
+const services = {
     getInventoryList,
     getInventoryItem,
     addInventoryItem,
@@ -92,5 +91,7 @@ export default {
     deleteInventoryItem,
     getCategoryList,
     deleteCategory,
-};
+}
+
+export default services
 
