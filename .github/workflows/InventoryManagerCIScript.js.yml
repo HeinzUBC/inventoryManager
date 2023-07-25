@@ -43,7 +43,6 @@ jobs:
           cache: 'npm'
         env:
           STATE: true
-        working-directory: inventoryManager/Client
 
       - name: Install dependencies for inventoryManager/Client
         run: npm ci
@@ -63,7 +62,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
         if: env.STATE == 'false'
-        working-directory: inventoryManager/Server
 
       - name: Install dependencies for inventoryManager/Server
         run: npm ci
