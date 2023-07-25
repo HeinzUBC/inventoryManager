@@ -50,8 +50,8 @@ jobs:
       #        working-directory: inventoryManager/Client
 
       - name: Install dependencies for inventoryManager/Client
-        run: npm ci
         working-directory: ./Client
+        run: npm ci
 
       - name: Build inventoryManager/Client
         working-directory: ./Client
@@ -75,7 +75,7 @@ jobs:
 
       - name: Run unit/integration tests for inventoryManager/Server
         working-directory: ./Server
-      - run: npm test -- InventoryItems.validate.test.js
+        run: npm test -- InventoryItems.validate.test.js
       - run: npm test -- categories.routes.test.js
       - run: npm test -- InventoryItems.GET.routes.test.js
       - run: npm test -- InventoryItems.POST.routes.test.js
