@@ -9,7 +9,8 @@ on:
   push:
     branches: [ "master" ]
   pull_request:
-    - '*'
+    branches:
+      - '*'
 
 # environmental variables needed so that GitHub action workflow runner can
 # perform the necessary build and testing operations successfully
