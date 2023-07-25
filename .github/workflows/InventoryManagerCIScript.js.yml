@@ -25,12 +25,11 @@ jobs:
     runs-on: ubuntu-latest
 
     # The job uses the "strategy" section to create a matrix of Node.js
-    # versions (14.x, 16.x, 18.x, 20.x) to test the code across different
-    # Node.js releases.
+    # versions to test the code across different Node.js releases.
     strategy:
       matrix:
-        node-version: [ 20.x ]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [ 18.x, 20.x ]
 
     steps:
       # uses the actions/checkout action to clone the repository from
