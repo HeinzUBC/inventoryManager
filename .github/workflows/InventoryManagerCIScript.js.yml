@@ -53,16 +53,15 @@ jobs:
         run: npm run build --if-present
         working-directory: inventoryManager/Client
 
-      # Enable caching for inventoryManager/Server directory
+        # Enable caching for inventoryManager/Server directory.
+        # Checks the value of the STATE environment variable. If STATE
+        # is "false," the script sets up Node.js with the specified version and caches
+        # npm dependencies.
       - name: Use Node.js ${{ matrix.node-version }} for inventoryManager/Server
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-
-        # Checks the value of the STATE environment variable. If STATE
-        # is "false," the script sets up Node.js with the specified version and caches
-        # npm dependencies.
         if: env.STATE == 'false'
         working-directory: inventoryManager/Server
 
