@@ -9,8 +9,10 @@ on:
   push:
     branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
+    - '*'
 
+# environmental variables needed so that GitHub action workflow runner can
+# perform the necessary build and testing operations successfully
 env:
   MONGODB_URI: "mongodb+srv://m001-student:m001-mongodb-basics@sandbox.zagvop3.mongodb.net/inventoryManager"
   MONGODB_TEST_URL: "mongodb+srv://m001-student:m001-mongodb-basics@inventorymanagertestdb.sisgvlf.mongodb.net/testDB"
